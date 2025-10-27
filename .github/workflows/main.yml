@@ -7,5 +7,11 @@ jobs:
   job1:
     runs-on: ubuntu-22.04
     steps:
-      - name: step1
+      - name: Restore dependencies
+        run: dotnet restore # Restore NuGet packages
+
+      - name: Build application
+        run: dotnet build --no-restore # Build the application
+        
+      - name: Run app
         run: dotnet run --project MyConsoleApp.csproj
