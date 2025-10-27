@@ -7,6 +7,12 @@ jobs:
   job1:
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4 # Checkout the repository code
+  
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4 # Use the setup-dotnet action to install the .NET SDK
+        with:
+          dotnet-version: '9.0.x'
       - name: Restore dependencies
         run: dotnet restore # Restore NuGet packages
 
